@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.foxlink.realtime.model.Emp" table="EMP">
+		<id name="EMPNO" type="string">
+			<column name="EMPNO" length="10"/>
+			<generator class="assigned"/>
+		</id>
+				
+		<property name="NAME" type="string">
+			<column name="NAME" length="20" not-null="true" unique="false"/>
+		</property>
+	
+		<property name="DEPTNO" type="string">
+			<column name="DEPTNO" length="6" not-null="true" unique="false"/>
+		</property>
+	</class>
+</hibernate-mapping>

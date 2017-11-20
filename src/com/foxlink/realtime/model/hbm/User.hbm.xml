@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.foxlink.realtime.model.User" table="USER_DATA">
+        <id name="ID" type="int">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="USERID" type="string">
+            <column name="USERID" length="20" not-null="true" unique="false" />
+        </property>
+        <property name="PASSWORD" type="string">
+            <column name="PASSWORD" length="20" not-null="true" unique="false" />
+        </property>
+        
+        <property name="CHINESENAME" type="string">
+            <column name="CHINESENAME" length="20" not-null="true" unique="false" />
+        </property>
+        
+        <property name="ASSISTANT_ID" type="string">
+            <column name="ASSISTANT_ID" length="10" not-null="true" unique="false" />
+        </property>
+        
+        <property name="DEPARTMENTCODE" type="string">
+            <column name="DEPARTMENTCODE" length="6" not-null="false" unique="false" />
+        </property>
+        
+        <property name="COSTID" type="string">
+            <column name="COSTID" length="50" not-null="false" unique="false" />
+        </property>
+        
+        <property name="SWIPE_SYSTEM_CHIEF" type="string">
+            <column name="SWIPE_SYSTEM_CHIEF" length="2" not-null="false" unique="false" default="1" />
+        </property>
+        
+        <property name="EMAIL" type="string">
+            <column name="EMAIL" length="40" not-null="false" unique="false" />
+        </property>
+        
+        <property name="PHONE_TEL" type="string">
+            <column name="PHONE_TEL" length="30" not-null="false" unique="false" />
+        </property>
+        
+        <property name="PHONE_SYSTEM" type="string">
+            <column name="PHONE_SYSTEM" length="3" not-null="false" unique="false" />
+        </property>
+        
+       <property name="PHONE_SN" type="string">
+            <column name="PHONE_SN" length="30" not-null="false" unique="false" />
+        </property>
+        
+        <property name="WECHAT_ID" type="string">
+            <column name="WECHAT_ID" length="30" not-null="false" unique="false" />
+        </property>
+        
+        <property name="WECHAT_CHECK" type="int">
+            <column name="WECHAT_CHECK"  unique="false" />
+        </property>
+        
+        <property name="WECHAT_UPDATE_DATE" type="date">
+            <column name="WECHAT_UPDATE_DATE"  not-null="false" unique="false" />
+        </property>
+        
+        <property name="MODIFICATION_PROVE" type="int">
+            <column name="MODIFICATION_PROVE"  unique="false" />
+        </property>
+        
+                <property name="CHPASS_TIME" type="date">
+            <column name="CHPASS_TIME"  not-null="false" unique="false" />
+        </property>
+        
+        <property name="QUERY_COSTID" type="string">
+            <column name="QUERY_COSTID" length="100" not-null="false" unique="false" />
+        </property>
+        
+        
+    </class>
+</hibernate-mapping>
+
+
+<!-- 
+	"SWIPE_SYSTEM_CHIEF" VARCHAR2(2 BYTE) DEFAULT '1', 
+	"QUERY_COSTID" VARCHAR2(100 BYTE) DEFAULT NULL, 
+
+ -->
