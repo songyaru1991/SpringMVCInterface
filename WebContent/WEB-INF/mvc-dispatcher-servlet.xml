@@ -10,7 +10,10 @@
 		http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd 
         http://www.springframework.org/schema/context 
         http://www.springframework.org/schema/context/spring-context-4.0.xsd">
-	<context:component-scan base-package="com.foxlink.*" />
+        
+     <!-- 设置使用注解的类所在的jar包 -->   
+	<context:component-scan base-package="com.foxlink.realtime" />
+	
 	<mvc:annotation-driven>
 		<!-- 解決中文亂碼 -->
 		<mvc:message-converters register-defaults="true">
@@ -19,9 +22,8 @@
         		</bean>
     		</mvc:message-converters>
 	</mvc:annotation-driven>
-	
-	
-	
+		
+	<!-- 对转向页面的路径解析。prefix：前缀， suffix：后缀 -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">
@@ -31,5 +33,9 @@
 			<value>.jsp</value>
 		</property>
 	</bean>
-	<mvc:resources mapping="/resources/**" location="/resources/" />
+	
+    <!-- don't handle the static resource -->
+    <mvc:default-servlet-handler />  
+	<mvc:resources mapping="/resources/**" location="/resources/" /><!--所有的页面引用到/resources/**的资源都从/resources/里面进行查找 -->
+  
 </beans>

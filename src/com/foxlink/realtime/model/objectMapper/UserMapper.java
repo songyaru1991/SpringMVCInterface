@@ -13,24 +13,19 @@ public class UserMapper implements RowMapper<User> {
 	public User mapRow(ResultSet rs, int arg1) throws SQLException {
 		// TODO Auto-generated method stub
 		User user =new User();
-		user.setID(rs.getInt(1));
-		user.setUSERID(rs.getString(2));
+		user.setUSERNAME(rs.getString(2));
 		user.setPASSWORD(rs.getString(3));
 		user.setCHINESENAME(rs.getString(4));
 		user.setASSISTANT_ID(rs.getString(5));
 		user.setDEPARTMENTCODE(rs.getString(6));
 		user.setCOSTID(rs.getString(7));
-		user.setSWIPE_SYSTEM_CHIEF(rs.getString(8));
 		user.setEMAIL(rs.getString(9));
 		user.setPHONE_TEL(rs.getString(10));
-		user.setPHONE_SYSTEM(rs.getString(11));
-		user.setPHONE_SN(rs.getString(12));
-		user.setWECHAT_ID(rs.getString(13));
-		user.setWECHAT_CHECK(rs.getInt(14));
-		user.setWECHAT_UPDATE_DATE(rs.getDate(15));
-		user.setMODIFICATION_PROVE(rs.getInt(16));
-		user.setCHPASS_TIME(rs.getDate(17));
-		user.setQUERY_COSTID(rs.getString(18));
+		user.setCREATE_DATE(rs.getDate(11));
+		user.setUPDATE_USER(rs.getString(12));
+		user.setENABLED(rs.getInt(13));
+		user.setCHPASS_TIME(rs.getDate(14));
+		user.setQUERY_COSTID(rs.getString(15));
 		return user;
 	}
 

@@ -4,9 +4,9 @@
 
 <hibernate-mapping>
 	<class name="com.foxlink.realtime.model.Emp" table="EMP">
-		<id name="EMPNO" type="string">
+		<id name="EMPNO" type="string">      <!-- 主键 -->
 			<column name="EMPNO" length="10"/>
-			<generator class="assigned"/>
+			<generator class="assigned"/><!-- Hibernate的主键生成策略,assigned:主键由外部程序负责生成，在 save() 之前指定。 -->
 		</id>
 				
 		<property name="NAME" type="string">

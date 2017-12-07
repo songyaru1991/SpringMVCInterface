@@ -1,18 +1,18 @@
 package com.foxlink.realtime.service.Imp;
 
 import java.sql.PreparedStatement;
+
 import java.sql.SQLException;
 import java.util.List;
 
 import javax.sql.DataSource;
 
 import org.apache.log4j.Logger;
-import org.hibernate.HibernateException;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementSetter;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.TransactionStatus;
@@ -21,8 +21,7 @@ import org.springframework.transaction.support.DefaultTransactionDefinition;
 import com.foxlink.realtime.model.Emp;
 import com.foxlink.realtime.model.objectMapper.EmpMapper;
 import com.foxlink.realtime.service.IEmpService;
-import com.foxlink.realtime.util.HibernateUtil;
-
+//@Service("iEmpService")
 public class EmpService implements IEmpService{
 	Logger logger=Logger.getLogger(EmpService.class);
 	private PlatformTransactionManager transactionManager;
@@ -37,8 +36,8 @@ public class EmpService implements IEmpService{
 	@Override
 	public void AddNewRecord(Object t) {
 		// TODO Auto-generated method stub
-		TransactionDefinition txDef = new DefaultTransactionDefinition();
-		TransactionStatus txStatus = transactionManager.getTransaction(txDef);
+		TransactionDefinition txDef = new DefaultTransactionDefinition();//事务定义类
+		TransactionStatus txStatus = transactionManager.getTransaction(txDef);//返回事务对象
 		String sSQL="INSERT INTO EMP (DEPTNO,EMPNO,NAME) VALUES(?,?,?)";
 		try {
 			Emp newEmp=(Emp) t;
