@@ -12,7 +12,7 @@
 	        <frame-options policy="SAMEORIGIN"/>
 	    </headers>
 	    
-		<intercept-url pattern="/RealTime/**" access="hasRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/Account/**" access="hasRole('ROLE_ADMIN')" />
 		<intercept-url pattern="/RealTime/**" access="hasRole('ROLE_ADMIN')" />
 		
 		 <!-- 尝试访问没有权限的页面时跳转的页面 -->
@@ -37,7 +37,7 @@
 		<authentication-provider>
 			<jdbc-user-service data-source-ref="dataSource"
 				users-by-username-query= 
-					"select userName,password, enabled,ChineseName,assistant_id,DepartmentCode,costID from user_data where username=?"
+					"select userName,password, enabled,ChineseName,assistant_id,DepartmentCode,costID from user_data where username=? and ENABLED=1"
 			
 				 authorities-by-username-query=
 					"select username,role from user_roles where username=? "

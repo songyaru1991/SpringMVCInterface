@@ -47,22 +47,10 @@
 	
 	<div style="position: absolute; top: 55px; margin-left: 10px">
 		<div class="panel-body" style="border: 1px solid #e1e3e6;">
-			開始日期-<input id="dpick1" class="Wdate" type="text"
-				onClick="WdatePicker()"> 結束日期-<input id="dpick2"
-				class="Wdate" type="text" onClick="WdatePicker()"> 車間-<select
-				id="lineno">
-				<option value="%">All</option>
-				<c:forEach var="lineno" items="${lineno.rows }">
-					<option value="${lineno.lineno }">
-						<c:out value="${lineno.lineno }" />
-					</option>
-				</c:forEach>
-			</select> 加班單狀態-<select id="checkState">
-				<option value="All">All</option>
-				<option value="'0','9'">未審核</option>
-				<option value="1">已審核</option>
-			</select> <input name="" class="btn btn-primary" type="button"
-				onclick="showRCInforByDate();" value="查詢" />
+			賬號:<input type="text" id="userName" name="userName" class="input-sm">
+			姓名:<input type="text" id="ChineseName" name="ChineseName" class="input-sm">
+				<input type="button" id="searchAccountBtn" name="searchAccountBtn" class="btn btn-sm btn-primary" value="Search">
+			    <a id="addNewAccountBtn" role="button" href="#insertAccountDialog" class="btn btn-primary btn-sm" data-toggle="modal">新增賬號</a>
 
 			<div>
 				<div class="panel-body" style="border: 1px solid #e1e3e6;">
@@ -76,7 +64,6 @@
 								<th>報加班費用代碼</th>
 								<th>郵箱</th>
 								<th>分機號碼</th>
-								<th>查詢賬號權限</th>
 								<th>是否有效</th>
 							</tr>
 						</thead>
@@ -90,12 +77,37 @@
 								<th>報加班費用代碼</th>
 								<th>郵箱</th>
 								<th>分機號碼</th>
-								<th>查詢賬號權限</th>
 								<th>是否有效</th>
 							</tr>
 						</tfoot>
 					</table>
 				</div>
 			</div>
+	    <div align="right" style="height: 20">    
+              页次：${page.currentPage}/${page.totalPage}&nbsp;每页${page.pageSize}&nbsp;共${page.totalRecord}&nbsp;&nbsp;&nbsp;&nbsp;條
+  <a href="<c:url value='/Account/ShowAllAccount?p=1' />">首页</a>
+    <c:choose>  
+           <c:when test="${page.currentPage>1}">
+               <a href="<c:url value='/Account/ShowAllAccount?p=${page.currentPage-1}' />">上一页</a>
+           </c:when>  
+           <c:otherwise>
+                   <a href="#">上一页</a>
+           </c:otherwise>  
+    </c:choose>
+
+    &nbsp;
+    <c:forEach var="i" begin="1" end="${page.totalPage}">
+       <a href="<c:url value='/Account/ShowAllAccount?p=${i}'/>">${i}</a>
+    </c:forEach>
+     &nbsp;
+    <c:choose>  
+           <c:when test="${page.currentPage<page.totalPage}">
+               <a href="<c:url value='/Account/ShowAllAccount?p=${page.currentPage+1}' />">下一页</a>
+           </c:when>  
+           <c:otherwise>
+               <a href="#">下一页</a>
+           </c:otherwise>  
+    </c:choose>
+        </div> 		
 </body>
 </html>

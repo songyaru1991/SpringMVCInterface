@@ -39,6 +39,12 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans
       <property name = "accountDAO" ref = "accountDAO" />    
    </bean>   
 
+    <bean id="pageDao" class="com.foxlink.realtime.dao.Imp.PageDao">
+         <property name="jdbcTemplate" ref ="jdbcTemplate" /> 
+   </bean>
    
+   <bean id = "pageService" class = "com.foxlink.realtime.service.Imp.PageService">
+      <property name = "pageDao" ref = "pageDao" />    
+   </bean>   
    
 </beans>
